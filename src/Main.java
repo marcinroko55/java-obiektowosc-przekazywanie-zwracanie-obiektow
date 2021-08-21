@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        int n = 2;
+        int n = 100;
         CompanyRepo companyRepo = new CompanyRepo(n);
 
         String name = "Lufthansa";
@@ -22,7 +22,14 @@ public class Main {
         companyRepo.add(c3);
 
         companyRepo.displayAll();
-
+//co jest co?
+        System.out.println("----------------------poszukiwanie firmy o NIP = 111232323------------------------");
+        Company company = companyRepo.findCompany(111232373);
+        if(company != null) {
+            company.display();
+        } else {
+            System.out.println("Nie znaleziono firmy o podanym NIPI-e");
+        }
 
 
 
