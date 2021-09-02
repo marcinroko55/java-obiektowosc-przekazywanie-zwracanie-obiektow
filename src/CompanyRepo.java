@@ -17,13 +17,12 @@ public class CompanyRepo {
     }
 
     Company findCompany(long nip) {
-        Company findedCompany = null;
         for (int i = 0; i < companies.length && companies[i] != null; i++) {
             if (companies[i].nip == nip) {
-                findedCompany = companies[i];
+                return companies[i];
             }
         }
-        return findedCompany;
+        return null;
     }
 
     void displayAll() {
@@ -33,5 +32,4 @@ public class CompanyRepo {
             companies[i].display();
         }
     }
-
 }

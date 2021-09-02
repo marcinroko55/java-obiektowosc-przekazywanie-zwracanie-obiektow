@@ -1,5 +1,4 @@
 public class Company {
-    //    co się jak nazywa, wszędzie!
     String name;
     long nip;
     Address address;

@@ -3,35 +3,24 @@ public class Main {
         int n = 100;
         CompanyRepo companyRepo = new CompanyRepo(n);
 
-        String name = "Lufthansa";
-        String street = "Mickiewicza";
-        Address address = new Address(street, 3, 2);
-        Company c1 = new Company(name, 1234567890, address);
+        Address address = new Address("Mickiewicza", 3, 2);
+        Company company1 = new Company("Lufthansa", 1234567890, address);
 
-        companyRepo.add(c1);
+        companyRepo.add(company1);
+        Company company2 = new Company("Biedronka", 9994442299L, address);
 
-        String name2 = "Biedronka";
-        Company c2 = new Company(name2, 1234442299, address);
-
-        companyRepo.add(c2);
-
-        String name3 = "Decathlon";
-        String street1 = "Włókniarzy";
-        Address address3 = new Address(street1, 5, 1 );
-        Company c3 = new Company(name3 , 111232323, address3);
-        companyRepo.add(c3);
+        companyRepo.add(company2);
+        Address address3 = new Address("Włókniarzy", 5, 1);
+        Company company3 = new Company("Decathlon", 111232323, address3);
+        companyRepo.add(company3);
 
         companyRepo.displayAll();
-//co jest co?
         System.out.println("----------------------poszukiwanie firmy o NIP = 111232323------------------------");
-        Company company = companyRepo.findCompany(111232373);
-        if(company != null) {
-            company.display();
-        } else {
+        Company company = companyRepo.findCompany(111232323);
+        if (company == null) {
             System.out.println("Nie znaleziono firmy o podanym NIPI-e");
+        } else {
+            company.display();
         }
-
-
-
     }
 }
